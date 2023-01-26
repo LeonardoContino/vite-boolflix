@@ -24,6 +24,10 @@ export default{
         .then(res => { this.movies = res.data.results; })
         .catch(error => { console.log(error) })
   },
+  GetLenguageImg(img) {
+    return url = new URL(`./assets/img/${img}.png`)
+      
+    }
 
     
   
@@ -43,7 +47,7 @@ export default{
   <ul v-for="movie in movies" @key="movies.id">
     <li>titolo - {{ movie.title }}</li>
     <li>titolo originale - {{ movie.original_title }}</li>
-    <li>lingua - {{ movie.original_language }}</li>
+    <li>lingua - <img :src="GetLenguageImg(movie.original_language)" :alt="movie.original_language"></li>
     <li>valutazione - {{ movie.vote_average }}</li>
     <li>trama - {{ movie.overview }}</li>
 
