@@ -22,9 +22,15 @@ export default{
       
     }
     },
+    methods:{
+        getVote(voteValue) {
+      const rating = Math.ceil(voteValue / 2);
+      
+      return rating;
+    }
 
     
-} 
+} }
 </script>
 
 <template>
@@ -32,8 +38,7 @@ export default{
 <section>
     <div>
     
-        <img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" :alt="item.title"
-                class="img-fluid">
+    <img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" :alt="item.title">
     
   <ul>
     <li>titolo - {{title }}</li>
@@ -42,7 +47,7 @@ export default{
         <div v-else>{{ item.original_language }}</div>
     </li>
 
-    <li>valutazione - {{ item.vote_average }}</li>
+    <li>valutazione: <font-awesome-icon icon="fa-solid fa-star" v-for="vote in getVote(item.vote_average)" /></li>
     <li>trama - {{ item.overview }}</li>
 
   </ul>
