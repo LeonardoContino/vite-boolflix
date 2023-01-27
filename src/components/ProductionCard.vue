@@ -22,18 +22,19 @@ export default{
       
     }
     },
-    methods:{
-        BgcImg(){
-            
-        }
-    }
+
+    
 } 
 </script>
 
 <template>
 
 <section>
-
+    <div>
+    
+        <img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" :alt="item.title"
+                class="img-fluid">
+    
   <ul>
     <li>titolo - {{title }}</li>
     <li>titolo originale - {{ originalTitle }}</li>
@@ -45,5 +46,6 @@ export default{
     <li>trama - {{ item.overview }}</li>
 
   </ul>
+</div>
 </section>
 </template>
