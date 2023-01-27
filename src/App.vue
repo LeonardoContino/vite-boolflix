@@ -26,7 +26,7 @@ export default{
         this.series = [];
         return;
       }
-      this.fetchApi('search/movies', 'movies');
+      this.fetchApi('search/movie', 'movies');
       this.fetchApi('search/tv', 'series');
 
     },
