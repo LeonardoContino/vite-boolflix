@@ -1,8 +1,10 @@
 <script>
 
 import axios from 'axios';
+import ProductionCard from './components/ProductionCard.vue';
   
 export default{
+  components:{ProductionCard},
   data(){
     return{
       searchTerm:'',
@@ -14,12 +16,6 @@ export default{
     
   },
   methods:{
-    GetLanguageImg(img) {
-   const url = new URL(`./assets/img/${img}.png`, import.meta.url)
-    return url 
-
-      
-    },
     searchProductions(query){
       if(!this.searchTerm){
         this.movies = [];
@@ -62,26 +58,13 @@ export default{
 <main>
   <section>
   <h3>movies</h3>
-  <ul v-for="movie in movies" @key="movie.id">
-    <li>titolo - {{ movie.title }}</li>
-    <li>titolo originale - {{ movie.original_title }}</li>
-    <li>lingua - <img :src="GetLanguageImg(movie.original_language)" :alt="movie.original_language"></li>
-    <li>valutazione - {{ movie.vote_average }}</li>
-    <li>trama - {{ movie.overview }}</li>
-
-  </ul>
+  <ProductionCard v-for="movie in this.movies" :key="movie.id" :item="movie"></ProductionCard>
 </section>
 
 <section>
   <h3>series</h3>
-  <ul v-for="serie in series" @key="serie.id">
-    <li>titolo - {{ serie.name }}</li>
-    <li>titolo originale - {{ serie.original_name }}</li>
-    <li>lingua - <img :src="GetLanguageImg(serie.original_language)" :alt="serie.original_language"></li>
-    <li>valutazione - {{ serie.vote_average }}</li>
-    <li>trama - {{ serie.overview }}</li>
-
-  </ul>
+  <ProductionCard v-for="serie in this.series" :key="serie.id" :item="serie"></ProductionCard>
+  
 </section>
 </main>
 </template>
