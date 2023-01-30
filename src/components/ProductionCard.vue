@@ -1,4 +1,5 @@
 <script>
+
 export default{
     name: 'productionCard',
     props:{
@@ -20,6 +21,9 @@ export default{
          return url.href;
 
       
+    },
+    posterPath(){
+        return `https://image.tmdb.org/t/p/w342${this.item.poster_path}`
     }
     },
     methods:{
@@ -38,7 +42,7 @@ export default{
 <section>
     <div>
     
-    <img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" :alt="item.title">
+    <img :src="posterPath" :alt="item.title">
     
   <ul>
     <li>titolo - {{title }}</li>
@@ -47,10 +51,21 @@ export default{
         <div v-else>{{ item.original_language }}</div>
     </li>
 
-    <li>valutazione: <font-awesome-icon icon="fa-solid fa-star" v-for="vote in getVote(item.vote_average)" /></li>
+    <li>valutazione: <font-awesome-icon class="star-gold" icon="fa-solid fa-star" v-for="vote in getVote(item.vote_average)" /></li>
     <li>trama - {{ item.overview }}</li>
 
   </ul>
 </div>
 </section>
 </template>
+
+
+<style scoped lang="scss">
+
+.star-gold{
+    color: gold;
+    
+}
+
+
+</style>
