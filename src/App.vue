@@ -50,12 +50,16 @@ export default{
 </script>
 
 <template>
-  <header class="container m-3 d-flex justify-content-end">
-  <input v-model.trim="searchTerm" type="text">
-  <button  @click="searchProductions(searchTerm)">cerca</button>
+  <header class="container d-flex justify-content-between align-items-center">
+  <h1 class="text-danger">BOOLFLIX</h1>
+  <div class="d-flex">
+    <input v-model.trim="searchTerm" type="text" class="form-control input-header">
+  <button class="btn btn-danger ms-2" @click="searchProductions(searchTerm)">cerca</button>
+  </div>
+  
 </header>
 
-<main>
+<main class="container">
   <section>
   <h3>movies</h3>
   <ProductionCard v-for="movie in this.movies" :key="movie.id" :item="movie"></ProductionCard>
@@ -69,6 +73,30 @@ export default{
 </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+header{
+  background-color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  
+  .input-header{
+    width: 300px;
+    height: 40px;
+    padding: 0px;
+    padding-right: 10px;
+  }
+  button{
+    height: 40px;
+  }
+
+}
+main{
+  background-color: #555555;
+  height: calc(100vh - 80px);
+
+  h3{
+  padding-top: 10px;
+}
+}
 
 </style>
