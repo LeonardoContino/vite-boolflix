@@ -60,14 +60,20 @@ export default{
 </header>
 
 <main class="container">
-  <section>
+  <section >
   <h3>movies</h3>
+  <div class="row row-cols-4 row-cols-md-3 justify-content-between w-100">
   <ProductionCard v-for="movie in this.movies" :key="movie.id" :item="movie"></ProductionCard>
+
+  </div>
 </section>
 
-<section>
+<section >
   <h3>series</h3>
+  <div class="row row-cols-4 p-3 g-3">
   <ProductionCard v-for="serie in this.series" :key="serie.id" :item="serie"></ProductionCard>
+
+  </div>
   
 </section>
 </main>
@@ -92,10 +98,11 @@ header{
 }
 main{
   background-color: #555555;
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
 
   h3{
   padding-top: 10px;
+  color: white;
 }
 }
 

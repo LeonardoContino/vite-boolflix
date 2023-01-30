@@ -50,29 +50,69 @@ export default{
 
 <template>
 
-<section>
-    <div>
-    
-    <img :src="posterPath" :alt="item.title">
-    
-  <ul>
-    <li>titolo - {{title }}</li>
-    <li>titolo originale - {{ originalTitle }}</li>
-    <li>lingua - <img v-if="hasFlag" :src="GetLanguageImg" :alt="item.original_language">
-        <div v-else>{{ item.original_language }}</div>
-    </li>
 
-    <li>valutazione: <font-awesome-icon  :icon="setStarClass(n)" v-for="n in 5 " /></li>
-    <li>trama - {{ item.overview }}</li>
+    <div class="card">
+    
+        <div class="col">
+            <div class="copertina">
+                <img class="img-fluid" :src="posterPath" :alt="item.title">
+            </div>  
+            <div class="p-description">
+                <h3>titolo - {{title }}</h3>
+                <h4>titolo originale - {{ originalTitle }}</h4>
+                <div>lingua - <img class="img-lang" v-if="hasFlag" :src="GetLanguageImg" :alt="item.original_language">
+                    <div v-else>{{ item.original_language }}</div>
+                </div>
 
-  </ul>
-</div>
-</section>
+                <div>valutazione: <font-awesome-icon  :icon="setStarClass(n)" v-for="n in 5 "></font-awesome-icon></div>
+                <p>trama - {{ item.overview }}</p>
+            </div>
+
+        </div>
+    </div>
+
 </template>
 
 
 <style scoped lang="scss">
+.card{
+    height: 500px;
+    position: relative;
+    width: 350px;
+    
+    background-color: black;
+    cursor: pointer;
+    
+    .col{
+        height: 500px;
+        
+    }
+}
+.copertina{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 
+}
+.copertina:hover{
+    display: none;
+    transition: 0.5s;
+    
+    
+}
+.p-description {
+    padding-top: 20px;
+   overflow-y: auto;
+   color: white;
+   height: 100%;
+   width: 100%;
+   
+}
+
+.img-lang{
+    width: 40px;
+}
 .fa-star{
     color: gold;
     
