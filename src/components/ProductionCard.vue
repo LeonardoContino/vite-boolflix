@@ -1,7 +1,13 @@
 <script>
 
 export default{
+    
     name: 'productionCard',
+    data(){
+        return{
+            placeHolder: '../assets/img/no-poster-available.jpeg'
+        }
+    },
     props:{
         item: Object
     },
@@ -23,14 +29,19 @@ export default{
       
     },
     posterPath(){
+        if(!this.item.poster_path) return this.placeHolder;
         return `https://image.tmdb.org/t/p/w342${this.item.poster_path}`
     }
     },
     methods:{
-        getVote(voteValue) {
-      const rating = Math.ceil(voteValue / 2);
+        getVote() {
+      return Math.ceil(this.item.vote_average / 2);
       
-      return rating;
+      
+    },
+    setStarClass(n){
+        let starClass = n <= this.getVote() ? 'fa-solid' : 'fa-regular'
+        return starClass + ' fa-star'
     }
 
     
@@ -51,7 +62,7 @@ export default{
         <div v-else>{{ item.original_language }}</div>
     </li>
 
-    <li>valutazione: <font-awesome-icon class="star-gold" icon="fa-solid fa-star" v-for="vote in getVote(item.vote_average)" /></li>
+    <li>valutazione: <font-awesome-icon  :icon="setStarClass(n)" v-for="n in 5 " /></li>
     <li>trama - {{ item.overview }}</li>
 
   </ul>
@@ -62,7 +73,7 @@ export default{
 
 <style scoped lang="scss">
 
-.star-gold{
+.fa-star{
     color: gold;
     
 }
