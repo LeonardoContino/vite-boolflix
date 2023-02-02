@@ -51,7 +51,7 @@ export default{
 <template>
 
 
-    <div class="card">
+    <div class="card mb-4">
     
         <div class="col">
             <div class="copertina">
@@ -93,6 +93,7 @@ export default{
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
     
     img{
         width: 100%;

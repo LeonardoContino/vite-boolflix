@@ -62,7 +62,7 @@ export default{
 <main class="container">
   <section >
   <h3>movies</h3>
-  <div class="row row-cols-4 m-0">
+  <div class="row row-cols-4 m-0 justify-content-between">
   <ProductionCard v-for="movie in this.movies" :key="movie.id" :item="movie"></ProductionCard>
 
   </div>
