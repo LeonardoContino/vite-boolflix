@@ -62,7 +62,7 @@ export default{
 <main class="container">
   <section >
   <h3>movies</h3>
-  <div class="row row-cols-4 m-0 justify-content-between">
+  <div class="row row-cols-4 m-0 gap-5 justify-content-center">
   <ProductionCard v-for="movie in this.movies" :key="movie.id" :item="movie"></ProductionCard>
 
   </div>
@@ -70,7 +70,7 @@ export default{
 
 <section >
   <h3>series</h3>
-  <div class="row row-cols-4 g-3 m-0">
+  <div class="row row-cols-4 g-3 m-0 gap-5 justify-content-center ">
   <ProductionCard v-for="serie in this.series" :key="serie.id" :item="serie"></ProductionCard>
 
   </div>
