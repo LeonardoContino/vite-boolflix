@@ -79,12 +79,12 @@ export default{
     height: 500px;
     position: relative;
     width: 350px;
-    
     background-color: black;
     cursor: pointer;
     
     .col{
         height: 500px;
+        width: 100%;
         
     }
 }
@@ -92,7 +92,14 @@ export default{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    width: 100%;
+    
+    img{
+        width: 100%;
+        height: 100%;
+        
+    }
+    
 
 }
 .copertina:hover{
